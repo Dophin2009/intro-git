@@ -1,0 +1,42 @@
+* {
+    --dull-color: rgb(139, 139, 139);
+}
+
+pre, code {
+    color: rgb(223, 223, 223);
+    background-color: rgb(27, 27, 27);
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+
+pre {
+    padding: 20px 20px;
+}
+
+.carrot, .comment {
+    color: var(--dull-color);
+}
+
+.text-staged {
+    color: green;
+}
+
+.text-unstaged {
+    color: darkred;
+}
+
+.text-HEAD {
+    color: aqua;
+}
+
+.text-master {
+    color: lime;
+}
+
+.text-commit {
+    color: goldenrod;
+}
+
+.text-tag {
+    color: rgb(252, 245, 189);
+}

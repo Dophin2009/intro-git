@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>An Introduction to Git</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext"
+        rel="stylesheet">
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/extra-styles.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="static/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="static/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="static/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="static/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="static/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="static/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="static/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="static/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="static/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <main role="main">
+        <article id="webslides" class="vertical">
+            <section id="title">
+                <div class="wrap">
+                    <div class="content-center">
+                        <img class="slide-top size-10" src="static/images/git.png" alt="git">
+                    </div>
+                    <div style="margin: 100px"></div>
+                    <div class="content-center">
+                        <h1><strong>An Introduction to Git</strong></h1>
+                    </div>
+                </div>
+            </section>
+            <section id="version-control">
+                <div class="wrap">
+                    <div class="content-left">
+                        <img src="static/images/version-control.jpg" alt="version-control">
+                    </div>
+                    <div class="content-left">
+                        <h2><strong>Version Control</strong></h2>
+                        <p>System that allows for tracking and management of changes</p>
+                        <ul>
+                            <li>Creation or deletion of files</li>
+                            <li>Any changes made to code</li>
+                            <li>Annotation and tracing of changes by authors</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="branching">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Branching</strong></h2>
+                        <p>Allows for experimentation without fear of hurting existing functionality</p>
+
+                        <div class="content-left">
+                            <h3>Independent Concurrent Work</h3>
+                            <p>Contributors work independent of others' concurrent changes; merge branches to combine
+                                work</p>
+                        </div>
+
+                        <div class="content-left">
+                            <h3>Project Stability</h3>
+                            <p>Aids in well-defined and organized development process</p>
+                        </div>
+                    </div>
+                    <div class="content-left">
+                        <img src="static/images/branching.png" alt="branching">
+                    </div>
+                </div>
+            </section>
+            <section id="version-control-systems">
+                <div class="wrap">
+                    <h2><strong>Some Version Control Systems</strong></h2>
+                    <div class="grid">
+                        <div class="column">
+                            <h4><a href="https://savannah.nongnu.org/projects/cvs">Concurrent Versions System (CVS)</a></h4>
+                            <ul>
+                                <li><strong>Client-server model</strong> - server posses master copy</li>
+                                <li>Users check out a complete copy from the server</li>
+                                <li>Server only accepts changes from most recent changes to file</li>
+                                <li>Last release in 2008</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4><a href="https://subversion.apache.org/">Subversion (SVN)</a></h4>
+                            <ul>
+                                <li><strong>Client-server model</strong></li>
+                                <li>Matches/exceeds CVS features: atomic transactions, file locking</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4><a href="https://www.mercurial-scm.org/">Mercurial</a></h4>
+                            <ul>
+                                <li><strong>Distributed model</strong> - repository mirrored locally on every
+                                    contributor's system</li>
+                                <li>Extensions may be written in Python</li>
+                                <li>Fast transactions due to lack of central server dependence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="git-overview">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h1><strong>Git</strong></h1>
+                        <div>
+                            <ul>
+                                <li>Distributed model</li>
+                                <li>Fast and cheap transactions</li>
+                                <li>Atomic transactions, file locking, tagging</li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div>
+                            <ol>
+                                <h5>Status of files</h5>
+                                <li>
+                                    <strong>Untracked</strong>
+                                    - file is not included in git
+                                </li>
+                                <li>
+                                    <strong>Unstaged</strong>
+                                    - file is under source control, but changes have not yet been staged
+                                </li>
+                                <li>
+                                    <strong>Staged</strong>
+                                    - file's changes have been saved in the staging area
+                                </li>
+                                <li>
+                                    <strong>Committed</strong>
+                                    - file's changes have been commited to repo
+                                </li>
+                            </ol>
+                        </div>
+                        <br>
+                        <div>
+                            <img src="static/images/stages.png" alt="stages">
+                        </div>
+                    </div>
+                    <div class="content-left">
+                        <ul class="flexblock specs">
+                            <li>
+                                <h2>Installation</h2>
+                                Step-by-step walkthrough of Windows installation
+                            </li>
+                            <li>
+                                <h2>Initialization</h2>
+                                Creating a git repository in a project
+                            </li>
+                            <li>
+                                <h2>CLI Functions</h2>
+                                Staging, commiting, pulling, pushing, branching, etc.
+                            </li>
+                            <li>
+                                <h2>Remotes</h2>
+                                Using remote services such as GitHub or GitLab
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="installing">
+                <div class="wrap">
+                    <h2><strong>Installing Git</strong></h2>
+                    <h3><a target="_blank" rel="noopener noreferrer" href="https://git-scm.com/downloads" class="content-left">https://git-scm.com/downloads</a></h3>
+                </div>
+            </section>
+            <section id="verifying">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Verifying Installation</strong></h2>
+                        <h4><code><span class="carrot">></span> git --version</code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git --version
+git version 2.15.1.windows.2
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="initializing">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Creating a Git Repository</strong></h2>
+                        <h4><code><span class="carrot">></span> git init</code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git init
+Initialized empty Git repository in e:/path/to/project/root/.git/
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="git-status">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Git Status</strong></h2>
+                        <h4><code><span class="carrot">></span> git status</code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file>..." to unstage)
+        
+        <span class="text-staged">modified:    path/to/file.ext</span>
+        <span class="text-staged">new file:    path/to/file2.ext</span>
+
+Changes not staged for commit:
+  (use "git add &lt;file>..." to update what will be committed)
+  (use "git checkout -- &lt;file>..." to discard changes in working directory)
+
+        <span class="text-unstaged">modified:    path/to/file3.ext</span>
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="adding">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Adding Files</strong></h2>
+                        <div>
+                            <ul>
+                                <h5>The following commands are used to...</h5>
+                                <li>add untracked files to git</li>
+                                <li>stage unstaged changes</li>
+                            </ul>
+                        </div>
+
+                        <br>
+                        <div>
+                            <h4><code><span class="carrot">></span> git add &lt;file/dir></code></h>
+                                <h4><code><span class="carrot">></span> git add .</code></h4>
+                        </div>
+
+                        <br>
+                        <div>
+                            <h4>ex:</h4>
+                            <h4><code><span class="carrot">></span> git add index.html</code></h4>
+                            <h4><code><span class="carrot">></span> git add *.js</code></h4>
+                            <h4><code><span class="carrot">></span> git add directory</code></h4>
+                        </div>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git add script.js
+warning: LF will be replaced by CRLF in script.js
+The file will have its original line endings in your working directory.
+...
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="committing">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Committing Files</strong></h2>
+                        <h4>Commit changes to the git repository</h4>
+
+                        <h4><code><span class="carrot">></span> git commit <span class="comment">// message editing ui</span></code></h4>
+                        <br>
+
+                        <h4><code><span class="carrot">></span> git commit -m "&lt;msg>" <span class="comment">//
+                                    oneliner</span></code></h4>
+                        <h4><code><span class="carrot">></span> git commit -message="&lt;msg>"</code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git commit -m "Initial commit."
+[master d78736a] Initial commit.
+  3 files changed, 127 insertions(+), 17 deletions(-)
+  ...
+                        </pre>
+
+                        <br>
+                        <p>Summary messages should be clear and concise; verbalize changes in a couple of words <br>
+                            Follow, <em>if necessary</em>, with explanation of changes: what and why</p>
+
+                        <p><strong>Not all commits need a body</strong></p>
+
+                        For more detailed information: <a href="https://chris.beams.io/posts/git-commit/">https://chris.beams.io/posts/git-commit/</a>
+                    </div>
+                </div>
+            </section>
+            <section id="git-log">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Viewing Commits</strong></h2>
+                        <h4><code><span class="carrot">></span> git log</code></h4>
+                        <h4><code><span class="carrot">></span> git log --oneliner</code></h4>
+                        <h4><code><span class="carrot">></span> git log &lt;branch_name></code></h4>
+                        <h4><code><span class="carrot">></span> git log --author=&lt;name></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git log
+<span class="text-commit">commit d78736a93aea9ccf24b47b367bc0ed87f2d1ca48</span> (<span class="text-HEAD">HEAD</span> -> <span class="text-master">master</span>)
+Author: Eric Zhao &lt;21zhaoe@gmail.com>
+Date:   Thu Feb 27 00:00:05 20XX -0500
+
+    One-line summary of changes
+
+    A more detailed summarization of what changes were made and why they were
+    made. Blah blah blah... blah blah blah...
+
+<span class="text-commit">commit 1b80ddb9ded8c3ec64a046c844573103f3393426</span>
+Author: Eric Zhao &lt;21zhaoe@gmail.com>
+Date:   Thu Feb 27 00:00:00 20XX -0500
+
+    Initial commit
+                        </pre>
+                        <br>
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git log --oneline
+d78736a (<span class="text-HEAD">HEAD</span> -> <span class="text-master">master</span>) One-line summary of changes.
+1b80ddb Initial commit.
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="reset">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Reset</strong></h2>
+                        <h4>For completely dropping commits after the desired one: </h4>
+                        <h4><code><span class="carrot">></span> git reset --hard &lt;commit></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git reset --hard 1b80ddb
+HEAD is now at 1b80ddb Initial commit
+
+                        </pre>
+                    </div> 
+                </div>
+            </section>
+            <section id="revert">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Revert</strong></h2>
+                        <p>Creates new commit that patches out changes of given commits</p>
+
+                        <h4>Revert changes of given commits:</h4>
+                        <h4><code><span class="carrot">></span> git revert &lt;commit_1> &lt;commit_2> ...</code></h4>
+                        <br>
+                        
+                        <h4>Revert changes of range of commits:</h4>
+                        <h4><code><span class="carrot">></span> git revert &lt;range_start>..&lt;range_end></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git revert HEAD~1..HEAD <span class="comment">// remove changes of last</span>
+[master 8815c24] Revert "Make changes"
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="checkout">
+                <div class="wrap">
+                    <div>
+                        <h2><strong>Checkout</strong></h2>
+                        <h4>Switches between branches or commits</h4>
+                        <h4><code><span class="carrot">></span> git checkout &lt;commit_id> <span class="comment">// working directory to match commit</span></code></h4>
+                        <h4><code><span class="carrot">></span> git checkout &lt;branch_name> <span class="comment">// checkout HEAD of branch</span></code></h4>
+                    </div>
+                </div>
+            </section>
+            <section id="branching">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Branching</strong></h2>
+                        <h4>Create a new branch and switch to it:</h4>
+                        <h4><code><span class="carrot">></span> git checkout -b &lt;branch_name></code></h4>
+
+                        <h4>Switch to a branch:</h4>
+                        <h4><code><span class="carrot">></span> git checkout &lt;branch_name></code></h4>
+
+                        <h4>Delete a branch:</h4>
+                        <h4><code><span class="carrot">></span> git branch -d &lt;branch_name></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git checkout -b new_feature
+Switched to a new branch 'new_feature'
+
+<span class="carrot">E:\path\to\project\root></span> git add .
+
+<span class="carrot">E:\path\to\project\root></span> git commit -m "This is a commit on the new_feature branch"
+[new_feature db1acf4] This is a commit on the new_feature branch
+ 1 file changed, 16 insertion(+)
+
+<span class="carrot">E:\path\to\project\root></span> git log
+<span class="text-commit">commit db1acf40273fc79d1258e8ef3384cbd05cd0cbbe</span> (<span class="text-HEAD">HEAD</span> -> <span class="text-master">new_feature</span>)
+Author: Eric Zhao &lt;21zhaoe@gmail.com>
+Date:   Thu Feb 27 00:00:15 20XX -0500
+
+    This is a commit on the new_feature branch
+
+<span class="text-commit">commit d7251dd0e242178bb4e33c63fae37fc0668d63d0</span> (<span class="text-master">master</span>)
+Author: Eric Zhao &lt;21zhaoe@gmail.com>
+Date:   Thu Feb 27 00:00:10 20XX -0500
+
+    This is a commit on the master branch
+...
+
+<span class="carrot">E:\path\to\project\root></span> git checkout master
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="merging">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Merging Branches</strong></h2>
+                        <h4>Merge branch to current branch</h4>
+                        <h4><code><span class="carrot">></span> git merge &lt;branch_name></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git merge new_branch
+Updating 6aea1e5..26a10d0
+Fast-forward
+ ajwlkdjalkwjldjawkldj.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ajwlkdjalkwjldjawkldj.txt
+
+<span class="carrot">E:\path\to\project\root></span> git checkout master
+Switched to branch 'master'
+
+<span class="carrot">E:\path\to\project\root></span> git branch -d new_branch
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="remotes">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Remote Repositories</strong></h2>
+                        <p>Repository mirrored on a remote server to enable collaboration</p>
+                        <ul>
+                            <h5>Some remote services:</h5>
+                            <li>GitHub - <a href="https://github.com/">https://github.com</a></li>
+                            <li>GitLab - <a href="https://gitlab.com/">https://gitlab.com</a></li>
+                            <li>BitBucket - <a href="https://bitbucket.org/">https://bitbucket.org</a></li>
+                            <li>Sourceforge - <a href="https://sourceforge.net/">https://sourceforge.net</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-left">
+                        <img src="static/images/gitlab.png" alt="gitlab-interface" height="900px">
+                    </div>
+                </div>
+            </section>
+            <section id="adding-remotes">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Defining Remotes</strong></h2>
+
+                        <h4>Adding Remotes</h4>
+                        <h4><code><span class="carrot">></span> git remote add &lt;name> &lt;https_link></code></h4>
+
+                        <h4>Removing Remotes</h4>
+                        <h4><code><span class="carrot">></span> git remote remove &lt;name></code></h4>
+                        
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git remote add origin https://github.com/username/repo-name.git
+
+<span class="carrot">E:\path\to\project\root></span> git remote -v
+origin  https://github.com/username/repo-name.git (fetch)
+origin  https://github.com/username/repo-name.git (push)
+
+<span class="carrot">E:\path\to\project\root></span> git remote remove origin
+
+<span class="carrot">E:\path\to\project\root></span> git remote -v
+
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="pushing-pulling">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Pushing and Pulling</strong></h2>
+                        <h4>Pushing commits to a remote</h4>
+                        <h4><code><span class="carrot">></span> git push &lt;remote> &lt;branch></code></h4>
+                        
+                        <h4>Pulling commits from a remote</h4>
+                        <h4><code><span class="carrot">></span> git pull &lt;remote></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 312 bytes | 34.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To https://github.com/username/repo-name.git
+   c762e24..6aea1e5  master -> master
+
+<span class="comment">// files on remote become more recent due to some edits </span>
+
+<span class="carrot">E:\path\to\project\root></span> git pull origin master
+From https://github.com/username/git-repo
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ jdaklwjdkljwakdj.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 jdaklwjdkljwakdj.txt
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="pull-requests">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Pull Requests</strong></h2>
+                        <h4>Discuss and review changes before merging branches</h4>
+                        <h4><b>Request</b> contributors to <b>pull</b> your changes into their repository</h4>
+                    </div>
+                </div>
+            </section>
+            <section id="extra-things">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>More Things</strong></h2>
+                    </div>
+                </div>
+            </section>
+            <section id="staging">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Staging Files</strong></h2>
+                        <h4>These are the <strong>same</strong>:</h4>
+                        <h4><code><span class="carrot">></span> git add &lt;file/dir></code></h4>
+                        <h4><code><span class="carrot">></span> git stage &lt;file/dir></code></h4>
+                    </div>
+                </div>
+            </section>
+            <section id="removing">
+                <div class="wrap">
+                    <div>
+                        <h2><strong>Removing Files</strong></h2>
+
+                        <h4><code><span class="carrot">></span> git rm &lt;file> <span class="comment">// deletes from
+                                    git and filesystem!</span></code></h4>
+                        <h4>Recursive removal for directories: <code>-r</code></h4>
+                        <br>
+
+                        <h4>Deletes from git, but keeps file <code>--cached</code></h4>
+                        <br>
+
+                        <h4>For staged files or directories, add <code>-f</code> or <code>--force</code>, or first
+                            unstage</h4>
+                        <br>
+
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> dir
+
+ Directory of E:\path\to\root
+
+02/28/2019  20:46    &lt;DIR>          .
+02/28/2019  20:46    &lt;DIR>          ..
+02/28/2019  18:37                 7 .gitignore
+02/28/2019  20:54            19,063 index.html
+02/28/2019  20:46    &lt;DIR>          test
+                3 File(s)         22,101 bytes
+                5 Dir(s)  635,638,149,120 bytes free
+
+<span class="carrot">E:\path\to\project\root></span> git add test <span class="comment">// test, its files, and subdirectories are now staged</span>
+
+<span class="carrot">E:\path\to\project\root></span> git rm -r -f --cached test <span class="comment">// test, its files, and subdirectories are now untracked</span>
+rm 'test/test.txt'
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="unstaging">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Unstaging Changes</strong></h2>
+                        <h4><code><span class="carrot">></span> git reset HEAD &lt;filename></code></h4>
+                        <h4><code><span class="carrot">></span> git reset &lt;filename></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git add file.txt
+
+<span class="carrot">E:\path\to\project\root></span> git reset file.txt
+Unstaged changes after reset:
+M       index.html
+...
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="tagging">
+                <div class="wrap">
+                    <div class="content-left">
+                        <h2><strong>Tagging</strong></h2>
+                        <h4><code><span class="carrot">></span> git tag &lt;tag> &lt;commit_id></code></h4>
+                    </div>
+                    <div class="content-left">
+                        <pre>
+<span class="carrot">E:\path\to\project\root></span> git tag 1.0.0 d7251dd0e2
+
+<span class="carrot">E:\path\to\project\root></span> git log
+<span class="text-commit">commit d7251dd0e242178bb4e33c63fae37fc0668d63d0</span> (<span class="text-HEAD">HEAD</span> -> <span class="text-master">master</span>, <span class="text-tag">tag: 1.0.0</span>)
+Author: Eric Zhao &lt;21zhaoe@gmail.com>
+Date:   Thu Feb 27 00:00:15 20XX -0500
+
+    This is a commit on the master branch
+...
+                        </pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <script src="static/js/webslides.js"></script>
+    <script>
+        window.ws = new WebSlides();
+    </script>
+
+    <script defer src="static/js/svg-icons.js"></script>
+</body>
+
+</html>
